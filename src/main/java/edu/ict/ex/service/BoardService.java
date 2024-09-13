@@ -16,5 +16,7 @@ public interface BoardService {
 	int modify(int bid ,String bname, String btitle, String bcontent);
 	
 	void boardReply(BoardVO boardVO);
+	
+	 int updateHit(BoardVO boardVO);
 		
 }

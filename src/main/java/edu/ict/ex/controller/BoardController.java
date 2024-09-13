@@ -100,17 +100,4 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	
-//	replyShape(String group, String step)
-//	
-//	String sql = "update mvc_board set bstep = bstep+1 where bgroup = ? and bstep > ?";
-//	
-//	reply(String bid,String bname, String btitle,String bcontent, String bgroup,String bstep, String bindent) {
-//	
-//		replyShape(bgroup, bstep);
-//	
-//		String sql = "insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?)";
-//	
-//	
-	
 }

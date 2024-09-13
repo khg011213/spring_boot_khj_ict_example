@@ -18,6 +18,8 @@ public interface BoardMapper {
 
 	BoardVO read(int bno);
 	
+	public int updateHit(BoardVO boardVO);
+	
 	int delete(int bno);
 
 	int insert(String bname, String btitle, String bcontent);
