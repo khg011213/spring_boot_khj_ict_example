@@ -20,5 +20,9 @@ public class EmpService {
 		
 		return empMapper.getList();
 	}
+
+	public int insert(EmpVO empVO) {
+		return empMapper.insert(empVO);
+	}
 	
 }

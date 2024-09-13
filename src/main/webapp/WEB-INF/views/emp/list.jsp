@@ -35,6 +35,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
+	<a href="/emp/form_view">신규사원등록</a>
 </body>
 </html>

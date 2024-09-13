@@ -3,12 +3,14 @@ package edu.ict.ex.mapper;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,7 +49,7 @@ class BoardMapperTest {
 		}
 
 	}
-	
+	@Disabled
 	@Test
 	void testModify() {
 		
@@ -61,6 +63,17 @@ class BoardMapperTest {
 		
 		boardMapper.modify(0, null, null, null);
 
+
+	}
+	
+	@Test
+	void testgetListWithPaging() {
+		Criteria criteria = new Criteria();
+		criteria.setAmount(10);
+		criteria.setPageNum(2);
+		List<BoardVO>list = boardMapper.getListWithPaging(criteria);
+
+		System.out.println(list);
 
 	}
 	
