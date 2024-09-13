@@ -6,19 +6,22 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+
+import edu.ict.ex.vo.BoardVO;
 import edu.ict.ex.vo.EmpVO;
 
 //DeptRepository 다른이름
 //@bean = @Component
 //@Bean + Dao의 의미
-@Repository
-public class EmpDao {
-	
-//	public List<EmpVO> empSelect(){
+//@Repository
+//public class BoardDao {
+//	
+//	public List<BoardVO> boardList(){
 //	      
-//	      List<EmpVO> vos = new ArrayList<>();
+//	      List<BoardVO> vos = new ArrayList<>();
 //	      
 //	      Connection connetion = null;
 //	      Statement statement = null;
@@ -29,7 +32,7 @@ public class EmpDao {
 //	      String uid = "scott";
 //	      String upw = "tiger";
 //	      
-//	      String sql = "select * from emp";
+//	      String sql = "select * from SPRING_BOARD";
 //	      
 //	      try{
 //	    	  
@@ -42,21 +45,25 @@ public class EmpDao {
 //
 //	         
 //	         while(rs.next()){
-//	        			 		 
-//	            EmpVO dto = new EmpVO.Builder()
-//	            		.setEmp(rs.getInt("empno"))
-//	            		.ename(rs.getString("ename"))
-//	            		.job(rs.getString("job"))
-//	            		.mgr(rs.getInt("mgr"))
-//	            		.date(rs.getDate("HIREDATE"))
-//	            		.sal(rs.getInt("sal"))
-//	            		.comm(rs.getInt("comm"))
-//	            		.deptno(rs.getInt("deptno"))
-//	            		.Build();
+//	        			 		
+//	        	int id = rs.getInt("id");
+//	        	String content = rs.getString("content");
+//	        	String title = rs.getString("title");
+//	        	String nickname = rs.getString("nickname");
+//	        	
+//	        	System.out.println(content);
+//	        	
+//	        	// VO를 안쓰는 방식
+//	        	
+////	        	HashMap<String, List<?>> map = new HashMap<>();
+////	        	List<String> test = new ArrayList<>();
+////	        	
+////	        	map.put("키값", test);
+//	        	
+//	        	// VO를 쓰는 방식
 //	            
-//	            System.out.println(dto.toString());
-//	            
-//	            
+//	        	BoardVO dto = new BoardVO( id , content , title,nickname);
+//	        	
 //	            vos.add(dto);
 //	         }         
 //	         
@@ -83,5 +90,5 @@ public class EmpDao {
 //	   }
 //	
 //	
-	
-}
+//	
+//}
