@@ -83,25 +83,19 @@ public class BoardController {
 	}
 	
 	@GetMapping("/reply_view")
-	public String Boardreply_view(BoardVO boardVO) {
+	public String Boardreply_view(BoardVO boardVO, Model model) {
 		
-		boardService.reply_view(boardVO.getBid());
+		model.addAttribute("reply_view",boardService.get(boardVO.getBid()));
 		
 		return "/board/reply_view";
 	}
 	
 	@PostMapping("/reply")
 	public String Boardreply(BoardVO boardVO) {
-//		int bid = boardVO.getBid();
-//		String bname = boardVO.getBname(); 
-//		String btitle = boardVO.getBtitle();
-//		String bcontent = boardVO.getBcontent();
-//		int bgroup = boardVO.getBgroup();
-//		int bstep = boardVO.getBstep();
-//		int bindent = boardVO.getBindent();
-//		
-//		
-//		boardService.reply(bid, bname, btitle, bcontent, bgroup, bstep, bindent);
+		
+		boardService.boardReply(boardVO);
+		
+		
 		
 		return "redirect:/board/list";
 	}

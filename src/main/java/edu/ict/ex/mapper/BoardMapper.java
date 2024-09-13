@@ -20,12 +20,14 @@ public interface BoardMapper {
 	
 	int delete(int bno);
 
-	public int insert(String bname, String btitle, String bcontent);
-
-	public int modify(int bid, String bname, String btitle, String bcontent);
-
-	public int reply(int bid, String bname, String btitle, String bcontent, int bgroup, int bstep, int bindent);
-
-	public int reply_view(int bid);
+	int insert(String bname, String btitle, String bcontent);
 	
+	//int insert(@Param("board") BoardVO boardVO, @Param("emp") EmpVO empvo) 이렇게도 가능 
+
+	int modify(int bid, String bname, String btitle, String bcontent);
+
+	//댓글
+	public void updateShape(BoardVO boardVO);
+	public void insertReply(BoardVO boardVO);
+
 }

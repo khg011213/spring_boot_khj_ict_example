@@ -48,16 +48,14 @@ public class BoardServiceimpl implements BoardService{
 		return boardMapper.modify(bid, bname,btitle,bcontent);
 	}
 
+	
+	//순서 있는 기능이 오는 부분 = 비지니스 로직 = 기능이 있는 로직  = 반드시 서비스 단에 위치
 	@Override
-	public int reply(int bid, String bname, String btitle, String bcontent, int bgroup, int bstep, int bindent) {
+	public void boardReply(BoardVO boardVO) {
+		log.info("boardReply()..");
+		boardMapper.updateShape(boardVO);
+		boardMapper.insertReply(boardVO);
 		
-		return boardMapper.reply(bid, bname, btitle, bcontent,  bgroup,  bstep,  bindent);
-	}
-
-	@Override
-	public int reply_view(int bid) {
-		
-		return boardMapper.reply_view(bid);
 	}
 	
 	

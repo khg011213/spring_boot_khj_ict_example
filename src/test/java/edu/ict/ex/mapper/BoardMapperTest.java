@@ -49,8 +49,17 @@ class BoardMapperTest {
 	}
 	
 	@Test
-	void testWrite() {
+	void testModify() {
 		
+		BoardVO board = new BoardVO();
+		
+		board.setBid(61);
+		
+		board.setBname("홍길동");
+		board.setBtitle("홍길동");
+		board.setBcontent("길동");
+		
+		boardMapper.modify(0, null, null, null);
 
 
 	}

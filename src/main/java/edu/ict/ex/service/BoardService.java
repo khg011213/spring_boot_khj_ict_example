@@ -14,9 +14,7 @@ public interface BoardService {
 	int insert(String bname, String btitle, String bcontent);
 
 	int modify(int bid ,String bname, String btitle, String bcontent);
-
-	int reply(int bid, String bname, String btitle, String bcontent, int bgroup, int bstep, int bindent);
-
-	int reply_view(int bid);
+	
+	void boardReply(BoardVO boardVO);
 		
 }

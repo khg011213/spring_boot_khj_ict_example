@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.ict.ex.mapper.BoardMapper">
 	<select id="getList" resultType="edu.ict.ex.vo.BoardVO"> <!-- 리스트 타입이어도 괄호안에이쓴ㄴ VO를 적음 -->
-        select * from MVC_BOARD
+        select * from MVC_BOARD ORDER BY BGROUP DESC,BSTEP ASC
     </select>
     
     <!-- 자바에서 파라미터 가져오는법 #{}사용 -->
@@ -30,18 +30,16 @@
     ]]>
     </update> 
     
-    <update id="reply">
+    <update id="updateShape">
     <![CDATA[
-            UPDATE mvc_board
-            SET bstep = bstep + 1
-            WHERE bgroup = #{bgroup} AND bstep > #{bstep};
-
-            INSERT INTO mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent)
-            VALUES (mvc_board_seq.nextval, #{bName}, #{bTitle}, #{bContent}, #{bGroup}, #{bStep}, #{bIndent})
+              update mvc_board set bstep = bstep+1 where bgroup = #{bgroup} and bstep > #{bstep}     
     ]]>
     </update> 
-        <select id="reply_view" resultType="edu.ict.ex.vo.BoardVO"> <!-- 리스트 타입이어도 괄호안에이쓴ㄴ VO를 적음 -->
-        select * from MVC_BOARD where bid = #{bid}
-    </select>
-   
+
+     <insert id="insertReply">
+    <![CDATA[
+             insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent, bHit) 
+         values (mvc_board_seq.nextval, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep} + 1,  #{bindent} + 1 , 0 )
+    ]]>
+    </insert> 
 </mapper>
