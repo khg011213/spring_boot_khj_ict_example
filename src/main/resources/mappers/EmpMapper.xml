@@ -26,5 +26,51 @@
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
          ]]>
     </select>
+    
+        <select id="getEmpDeptList" resultType="EmpVO"> <!-- 리스트 타입이어도 괄호안에이쓴ㄴ VO를 적음 -->
+        <![CDATA[
+         select * from emp , dept where emp.DEPTNO = dept.DEPTNO
+         ]]>
+    </select>
+    
+    <!-- property 는 setdeptno  같은 느낌 column DB테이블의 deptno임 그리고 연결-->
+  <resultMap id="empMap" type="EmpVO" >
+       <id property="empno" column="empno"/>
+       <result property="ename" column="ename"/>
+       <result property="job" column="job"/>
+       <result property="mgr" column="mgr"/>
+       <result property="hiredate" column="hiredate"/>
+       <result property="sal" column="sal"/>
+       <result property="comm" column="comm"/>
+       <result property="deptno" column="deptno"/>
+    </resultMap>
+    
+    <resultMap id="detpMap" type="DeptEmpVO">
+       <result property="deptno" column="deptno"/>
+       <result property="dname" column="dname"/>
+       <result property="loc" column="loc"/>
+       <collection property="empList" resultMap="empMap"></collection>
+    </resultMap>
+    
+   <!--  절대 resultType 으로 하지 말것 -->
+    <select id="getDeptEmpList" resultMap="detpMap">
+       <![CDATA[
+             select * from emp, dept where emp.deptno = dept.deptno
+        ]]>
+    </select>
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
      
 </mapper>
+
+

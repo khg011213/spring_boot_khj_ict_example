@@ -3,6 +3,7 @@ package edu.ict.ex.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import edu.ict.ex.page.Criteria;
+import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.EmpVO;
 
 
@@ -13,7 +14,12 @@ public interface EmpMapper {
 	public List<EmpVO> getList();
 
 	int insert(EmpVO empVO);
-
+	
+	//조인 처리 방법1
+	public List<EmpVO>getEmpDeptList();
+	//조인 처리 방법2
+	public List<DeptEmpVO>getDeptEmpList();
+	
 	public int getTotal();
 
 	public List<EmpVO> getListWithPageing(Criteria criteria);

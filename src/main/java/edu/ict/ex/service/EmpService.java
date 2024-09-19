@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ict.ex.mapper.EmpMapper;
 import edu.ict.ex.page.Criteria;
+import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.EmpVO;
 
 //DeptRepository 다른이름
@@ -32,6 +33,14 @@ public class EmpService {
 
 	public List<EmpVO> getListWithPaging(Criteria criteria) {
 		return empMapper.getListWithPageing(criteria);
+	}
+	
+	public List<EmpVO> getEmpDeptList(){
+		return empMapper.getEmpDeptList();
+	}
+	
+	public List<DeptEmpVO> getDeptEmpList(){
+		return empMapper.getDeptEmpList();
 	}
 	
 }
