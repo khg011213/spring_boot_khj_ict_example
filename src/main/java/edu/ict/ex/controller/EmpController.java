@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.ict.ex.service.DeptService;
 import edu.ict.ex.service.EmpService;
 import edu.ict.ex.vo.BoardVO;
 import edu.ict.ex.vo.EmpVO;
@@ -18,6 +20,9 @@ public class EmpController {
 	@Autowired
 	private EmpService empService; 
 	
+	@Autowired
+	private DeptService deptService;
+	
 	@GetMapping("/list")
 	public String getMethodName(Model model) {
 		
@@ -28,7 +33,9 @@ public class EmpController {
 	}
 	
 	@GetMapping("/form_view")
-	public String BoardWrite_view() {
+	public String BoardWrite_view(Model model) {
+		model.addAttribute("emplist", empService.getList());
+		model.addAttribute("deptList" , deptService.getList());
 		return "emp/form_view";
 	}
 	
@@ -36,6 +43,7 @@ public class EmpController {
 	@PostMapping("/form")
 	public String getEmpForm(EmpVO empVO ) {
 		System.out.println("insert()...");
+		System.out.println(empVO);
 			empService.insert(empVO);
 			return "redirect:/emp/list";
 	}

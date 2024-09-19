@@ -28,7 +28,7 @@
 				<td>${emp.ename}</td>
 				<td>${emp.job}</td>
 				<td>${emp.mgr}</td>
-				<td>${emp.date}</td>
+				<td>${emp.hiredate}</td>
 				<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
 				<td>${emp.comm}</td>
 				<td>${emp.deptno}</td>
