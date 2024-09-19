@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import edu.ict.ex.page.Criteria;
-import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,8 +34,23 @@ class EmpMapperTest {
 	}
 	
 	@Test
+	@Disabled
 	void testgetDeptEmpList() {
 			System.out.println(empMapper.getDeptEmpList());
+		
+	}
+	
+	@Test
+	@Disabled
+	void testgetSalEmpList() {
+			System.out.println(empMapper.getEmpSalList());
+		
+	}
+	
+	@Test
+	@Disabled
+	void testgetInfoList() {
+			System.out.println(empMapper.getInfo());
 		
 	}
 	
@@ -71,5 +85,6 @@ class EmpMapperTest {
 
 		System.out.println(list);
 	}
+	
 
 }

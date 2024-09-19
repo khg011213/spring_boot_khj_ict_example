@@ -43,6 +43,7 @@
        <result property="sal" column="sal"/>
        <result property="comm" column="comm"/>
        <result property="deptno" column="deptno"/>
+       <collection property="deptList" resultMap="detpSalMap"></collection>
     </resultMap>
     
     <resultMap id="detpMap" type="DeptEmpVO">
@@ -59,15 +60,36 @@
         ]]>
     </select>
 
+    <resultMap id="salMap" type="SalgradeVO">
+       <result property="grade" column="grade"/>
+       <result property="losal" column="losal"/>
+       <result property="hisal" column="hisal"/>
+       <collection property="empList" resultMap="empMap"></collection>
+    </resultMap>
+     
+    <select id="getEmpSalList" resultMap="salMap">
+       <![CDATA[
+              SELECT ENAME, SAL, GRADE FROM EMP, SALGRADE WHERE SAL BETWEEN LOSAL AND HISAL
+        ]]>
+    </select>
+     
+    
+    <resultMap id="detpSalMap" type="DeptVO">
+       <result property="deptno" column="deptno"/>
+       <result property="dname" column="dname"/>
+       <result property="loc" column="loc"/>
+    </resultMap>
+    
+    <select id="getInfo" resultMap="salMap">
+       <![CDATA[
+              SELECT ENAME, SAL, emp.deptno , loc, GRADE FROM EMP join dept on emp.deptno = dept.deptno join SALGRADE on EMP.SAL BETWEEN SALGRADE.LOSAL AND SALGRADE.HISAL
 
+        ]]>
+    </select>
      
-     
-     
-     
-     
-     
-     
-     
+     <delete id="delete">
+     	delete from emp where empno = #{empno}
+     </delete>
      
      
      

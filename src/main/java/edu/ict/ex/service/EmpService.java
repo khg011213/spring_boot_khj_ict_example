@@ -7,6 +7,7 @@ import edu.ict.ex.mapper.EmpMapper;
 import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.EmpVO;
+import edu.ict.ex.vo.SalgradeVO;
 
 //DeptRepository 다른이름
 //@bean = @Component
@@ -41,6 +42,20 @@ public class EmpService {
 	
 	public List<DeptEmpVO> getDeptEmpList(){
 		return empMapper.getDeptEmpList();
+	}
+
+	public List<SalgradeVO> getEmpSalList() {
+		return empMapper.getEmpSalList();
+	}
+
+	public List<SalgradeVO> getInfo() {
+		// TODO Auto-generated method stub
+		return empMapper.getInfo();
+	}
+
+	public int delete(int empno) {
+		return empMapper.delete(empno);
+		
 	}
 	
 }

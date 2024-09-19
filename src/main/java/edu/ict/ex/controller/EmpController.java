@@ -79,4 +79,29 @@ public class EmpController {
 		return "emp/list2";
 	}
 	
+	@GetMapping("/salgrade")
+	public String salgrade(Model model) {
+		
+		System.out.println("salgrade()..");
+		model.addAttribute("EmpSalList", empService.getEmpSalList() );
+		
+		return "emp/salgrade";
+	}
+	
+	@GetMapping("/info")
+	public String getinfo(Model model) {
+		
+		System.out.println("salgrade()..");
+		model.addAttribute("getInfo", empService.getInfo() );
+		
+		return "emp/info";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(EmpVO empVO) {
+		
+		int empno = empVO.getEmpno();
+		empService.delete(empno);
+		return "redirect:/emp/list4";
+	}
 }
