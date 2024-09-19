@@ -5,12 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import edu.ict.ex.page.Criteria;
+import edu.ict.ex.page.PageVO;
 import edu.ict.ex.service.DeptService;
 import edu.ict.ex.service.EmpService;
-import edu.ict.ex.vo.BoardVO;
 import edu.ict.ex.vo.EmpVO;
 
 @Controller
@@ -46,6 +45,20 @@ public class EmpController {
 		System.out.println(empVO);
 			empService.insert(empVO);
 			return "redirect:/emp/list";
+	}
+	
+	@GetMapping("/list2")
+	public String getPaging(Criteria criteria ,Model model) {
+
+		System.out.println("list()2..");
+		model.addAttribute("empList", empService.getListWithPaging(criteria));
+		int total = empService.getTotal();
+		model.addAttribute("pageMaker" , new PageVO(criteria,total));
+		
+		System.out.println(new PageVO(criteria,total));
+
+		
+		return "emp/list2";
 	}
 	
 }

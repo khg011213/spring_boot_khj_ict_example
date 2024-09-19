@@ -1,14 +1,11 @@
 package edu.ict.ex.controller;
 
-import java.security.interfaces.RSAMultiPrimePrivateCrtKey;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import edu.ict.ex.page.Criteria;
 import edu.ict.ex.page.PageVO;
 import edu.ict.ex.service.BoardService;
@@ -105,6 +102,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	//처음에 list2를 타면 criteria 객체를 만듬 그러므로 VO에 디폴트 생성자를 활용하면 그 값이 들어감
 	@GetMapping("/list2")
 	public String getBoardlist2(Criteria criteria, Model model) {
 		

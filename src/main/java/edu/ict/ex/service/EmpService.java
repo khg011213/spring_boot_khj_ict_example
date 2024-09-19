@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ict.ex.mapper.EmpMapper;
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.EmpVO;
 
 //DeptRepository 다른이름
@@ -23,6 +24,14 @@ public class EmpService {
 
 	public int insert(EmpVO empVO) {
 		return empMapper.insert(empVO);
+	}
+
+	public int getTotal() {
+		return empMapper.getTotal();
+	}
+
+	public List<EmpVO> getListWithPaging(Criteria criteria) {
+		return empMapper.getListWithPageing(criteria);
 	}
 	
 }
