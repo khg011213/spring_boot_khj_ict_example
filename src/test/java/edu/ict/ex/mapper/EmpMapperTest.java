@@ -27,73 +27,16 @@ class EmpMapperTest {
 	
 	@Test
 	@Disabled
-	void testgetEmpDeptList() {
-		for (EmpVO vo : empMapper.getEmpDeptList()) {
-			System.out.println(vo);
-		}
+	void testGetEmpSalatade() {
+		System.out.println(empMapper.getEmpSalgrade());
 	}
 	
 	@Test
-	@Disabled
-	void testgetDeptEmpList() {
-			System.out.println(empMapper.getDeptEmpList());
-		
+	void testGetEmpDeptSalatade() {
+		System.out.println(empMapper.getEmpDeptSalgrade());
 	}
 	
-	@Test
-	@Disabled
-	void testgetSalEmpList() {
-			System.out.println(empMapper.getEmpSalList());
-		
-	}
-	
-	@Test
-	@Disabled
-	void testgetEmpOneDeptList() {
-			System.out.println(empMapper.getEmpOneDeptList());
-		
-	}
-	
-	@Test
-	@Disabled
-	void testgetSalGradeList() {
-			System.out.println(empMapper.getSalGradeList());
-		
-	}
-	
-	@Test
-	void testgetInfoTable() {
-			System.out.println(empMapper.getInfoTable());
-		
-	}
-	
-	@Test
-	@Disabled
-	void testgetInfoList() {
-			System.out.println(empMapper.getInfo());
-		
-	}
-	
-	@Test
-	@Disabled
-	void testInsert() {
-		  EmpVO emp = new EmpVO();
-	      emp.setEmpno(2001);
-	      emp.setEname("홍길동");
-	      emp.setJob("CLERK");
-	      emp.setMgr(7369);
-	      emp.setHiredate2("2024-09-24");
-	      emp.setComm(800);
-	      emp.setSal(2000);
-	      emp.setDeptno(10);
-	      
-	      empMapper.insert(emp);
-	      
-	      
-	      for(EmpVO vo : empMapper.getList()) {
-	         System.out.println(vo);
-	      }      
-	   }
+
 
 	@Test
 	@Disabled

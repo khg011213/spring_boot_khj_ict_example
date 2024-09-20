@@ -17,3 +17,5 @@ public class DeptVO {
 	private String loc;
 
 }
+
+//디폴트 생성자들에는 이상한 조인 넣지 말기

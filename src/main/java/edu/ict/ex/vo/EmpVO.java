@@ -1,7 +1,6 @@
 package edu.ict.ex.vo;
 
 import java.sql.Date;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,12 +22,5 @@ public class EmpVO {
 	private int sal;
 	private int comm;
 	private int deptno;
-	
-	private String hiredate2;
-	
-	private String dname;
-	private String loc;
-	
-	private List<DeptVO> deptList;
 
 }

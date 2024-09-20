@@ -19,20 +19,17 @@
 			<td>관리자</td>
 			<td>고용일자</td>
 			<td>급여</td>
-			<td>보너스</td>
-			<td>부서번호</td>
+			<td>sal등급</td>
 		</tr>
-		<c:forEach var="emp" items="${empList}">
+		<c:forEach var="vo" items="${empList}">
 			<tr>
-				<td>${emp.empno}</td>
-				<td>${emp.ename}</td>
-				<td>${emp.job}</td>
-				<td>${emp.mgr}</td>
-				<td>${emp.hiredate}</td>
-				<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
-				<td>${emp.comm}</td>
-				<td>${emp.deptno}</td>
-				<td> <a href="delete/${emp.empno}">삭제</a></td>
+				<td>${vo.emp.empno}</td>
+				<td>${vo.emp.ename}</td>
+				<td>${vo.emp.job}</td>
+				<td>${vo.emp.mgr}</td>
+				<td>${vo.emp.hiredate}</td>
+				<td><fmt:formatNumber value="${vo.emp.sal}" type="number"/></td>
+				<td>${vo.salgrade.grade}</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -1,5 +1,8 @@
-package edu.ict.ex.vo;
+package edu.ict.ex.vo.join;
 
+
+import edu.ict.ex.vo.EmpVO;
+import edu.ict.ex.vo.SalVO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,14 +10,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-// Dept 와 Emp 는 1 대 다 관계이다
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class SalVO {
-	private int grade;
-	private int losal;
-	private int hisal;
+public class EmpSalgradeVO {
+	private EmpVO emp;
+	private SalVO salgrade;
+
 }

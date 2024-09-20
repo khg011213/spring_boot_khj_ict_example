@@ -33,33 +33,6 @@ public class EmpController {
 		return "emp/list";
 	}
 	
-	@GetMapping("/list3")
-	public String list3(Model model) {
-		
-		System.out.println("list3()..");
-		model.addAttribute("empList", empService.getEmpDeptList() );
-		
-		return "emp/list3";
-	}
-	
-	@GetMapping("/list4")
-	public String list4(Model model) {
-		
-		System.out.println("list4()..");
-		model.addAttribute("empDeptList", empService.getDeptEmpList() );
-		
-		return "emp/list4";
-	}
-	
-	@GetMapping("/list5")
-	public String list5(Model model) {
-		
-		System.out.println("list5()..");
-		model.addAttribute("empList", empService.getEmpOneDeptList() );
-		
-		return "emp/list5";
-	}
-	
 	@GetMapping("/form_view")
 	public String BoardWrite_view(Model model) {
 		model.addAttribute("emplist", empService.getList());
@@ -90,41 +63,6 @@ public class EmpController {
 		return "emp/list2";
 	}
 	
-	@GetMapping("/salgrade")
-	public String salgrade(Model model) {
-		
-		System.out.println("salgrade()..");
-		model.addAttribute("EmpSalList", empService.getEmpSalList() );
-		
-		return "emp/salgrade";
-	}
-	
-	@GetMapping("/salgrade2")
-	public String salgrade2(Model model) {
-		
-		System.out.println("salgrade2()..");
-		model.addAttribute("EmpSalList", empService.getSalGradeList() );
-		
-		return "emp/salgrade2";
-	}
-	
-	@GetMapping("/info")
-	public String getinfo(Model model) {
-		
-		System.out.println("salgrade()..");
-		model.addAttribute("getInfo", empService.getInfo() );
-		
-		return "emp/info";
-	}
-	
-	@GetMapping("/info2")
-	public String getinfoTable(Model model) {
-		
-		System.out.println("salgrade()..");
-		model.addAttribute("getInfo", empService.getInfoTable() );
-		
-		return "emp/info2";
-	}
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable int id) {
@@ -132,6 +70,20 @@ public class EmpController {
 		int empno = id;
 		
 		empService.delete(empno);
-		return "redirect:/emp/list4";
+		return "redirect:/emp/list";
+	}
+	
+	@GetMapping("/list6")
+	public String list6(Model model) {
+		model.addAttribute("empList", empService.getEmpSalgrade());
+		
+		return "emp/list6";
+	}
+	
+	@GetMapping("/list7")
+	public String list7(Model model) {
+		model.addAttribute("empList", empService.getEmpDeptSalgrade());
+		
+		return "emp/list7";
 	}
 }

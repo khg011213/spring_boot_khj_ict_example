@@ -10,6 +10,8 @@ import edu.ict.ex.vo.EmpDeptVO;
 import edu.ict.ex.vo.EmpVO;
 import edu.ict.ex.vo.SalEmpVO;
 import edu.ict.ex.vo.SalgradeVO;
+import edu.ict.ex.vo.join.EmpDeptSalgradeVO;
+import edu.ict.ex.vo.join.EmpSalgradeVO;
 
 //DeptRepository 다른이름
 //@bean = @Component
@@ -38,38 +40,17 @@ public class EmpService {
 		return empMapper.getListWithPageing(criteria);
 	}
 	
-	public List<EmpVO> getEmpDeptList(){
-		return empMapper.getEmpDeptList();
-	}
 	
-	public List<DeptEmpVO> getDeptEmpList(){
-		return empMapper.getDeptEmpList();
-	}
-
-	public List<SalgradeVO> getEmpSalList() {
-		return empMapper.getEmpSalList();
-	}
-
-	public List<SalgradeVO> getInfo() {
-		// TODO Auto-generated method stub
-		return empMapper.getInfo();
-	}
 
 	public int delete(int empno) {
 		return empMapper.delete(empno);
 		
 	}
-	
-	public List<EmpDeptVO>getEmpOneDeptList(){
-		return empMapper.getEmpOneDeptList();
-	}
-
-	public List<SalEmpVO> getSalGradeList() {
-		return empMapper.getSalGradeList();
+	public List<EmpSalgradeVO> getEmpSalgrade(){
+		return empMapper.getEmpSalgrade();
 	}
 	
-	public List<SalEmpVO> getInfoTable() {
-		return empMapper.getInfoTable();
+	public List<EmpDeptSalgradeVO> getEmpDeptSalgrade(){
+		return empMapper.getEmpDeptSalgrade();
 	}
-	
 }
