@@ -50,6 +50,7 @@ public class EmpService {
 		return empMapper.getEmpSalgrade();
 	}
 	
+	//조인처리 EMP & DEPT & SALGRADE 
 	public List<EmpDeptSalgradeVO> getEmpDeptSalgrade(){
 		return empMapper.getEmpDeptSalgrade();
 	}

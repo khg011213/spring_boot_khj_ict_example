@@ -193,7 +193,7 @@
     
     <select id="getEmpDeptSalgrade" resultMap="EmpDeptSalgradeMap"  >
 		<![CDATA[
-			SELECT ENAME, SAL, emp.deptno , loc, GRADE FROM EMP join dept on emp.deptno = dept.deptno join SALGRADE on EMP.SAL BETWEEN SALGRADE.LOSAL AND SALGRADE.HISAL
+			SELECT * FROM EMP join dept on emp.deptno = dept.deptno join SALGRADE on EMP.SAL BETWEEN SALGRADE.LOSAL AND SALGRADE.HISAL
    		]]>    	
     </select>
     

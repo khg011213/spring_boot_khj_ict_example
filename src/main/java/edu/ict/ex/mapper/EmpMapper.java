@@ -23,8 +23,11 @@ public interface EmpMapper {
 
 	public int delete(int empno);
 
+	
+	//연습문제 join처리1
 	public List<EmpSalgradeVO> getEmpSalgrade();
 	
+	//연습문제 join처리2
 	public List<EmpDeptSalgradeVO> getEmpDeptSalgrade();
 	
 }
