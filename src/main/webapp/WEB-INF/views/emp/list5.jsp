@@ -22,25 +22,21 @@
 			<td>보너스</td>
 			<td>부서번호</td>
 			<td>부서이름</td>
-			<td>지역</td>
+			<td>부서위치</td>
 		</tr>
-		<!-- 우선 empDeptList 에서 깂을 받아오고 그 받아온 값 안에있는 empDept.empList 를 다시 for each문으로 돌린다 -->
-		<c:forEach var="empDept" items="${empDeptList}">
-			<c:forEach var = "emp" items="${empDept.empList}">
-				<tr>
-					<td>${emp.empno}</td>
-					<td>${emp.ename}</td>
-					<td>${emp.job}</td>
-					<td>${emp.mgr}</td>
-					<td>${emp.hiredate}</td>
-					<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
-					<td>${emp.comm}</td>
-					<td>${empDept.deptno}</td>
-					<td>${empDept.dname}</td>
-					<td>${empDept.loc}</td>
-					<td> <a href="delete/${emp.empno}">삭제</a></td>
-				</tr>
-			</c:forEach>
+		<c:forEach var="emp" items="${empList}">
+			<tr>
+				<td>${emp.empno}</td>
+				<td>${emp.ename}</td>
+				<td>${emp.job}</td>
+				<td>${emp.mgr}</td>
+				<td>${emp.hiredate}</td>
+				<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
+				<td>${emp.comm}</td>
+				<td>${emp.deptno}</td>
+				<td>${emp.dept.dname}</td>
+				<td>${emp.dept.loc}</td>
+			</tr>
 		</c:forEach>
 	</table>
 	<a href="/emp/form_view">신규사원등록</a>

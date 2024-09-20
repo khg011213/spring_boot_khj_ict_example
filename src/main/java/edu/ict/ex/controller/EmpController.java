@@ -3,7 +3,9 @@ package edu.ict.ex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import edu.ict.ex.page.Criteria;
@@ -49,6 +51,15 @@ public class EmpController {
 		return "emp/list4";
 	}
 	
+	@GetMapping("/list5")
+	public String list5(Model model) {
+		
+		System.out.println("list5()..");
+		model.addAttribute("empList", empService.getEmpOneDeptList() );
+		
+		return "emp/list5";
+	}
+	
 	@GetMapping("/form_view")
 	public String BoardWrite_view(Model model) {
 		model.addAttribute("emplist", empService.getList());
@@ -88,6 +99,15 @@ public class EmpController {
 		return "emp/salgrade";
 	}
 	
+	@GetMapping("/salgrade2")
+	public String salgrade2(Model model) {
+		
+		System.out.println("salgrade2()..");
+		model.addAttribute("EmpSalList", empService.getSalGradeList() );
+		
+		return "emp/salgrade2";
+	}
+	
 	@GetMapping("/info")
 	public String getinfo(Model model) {
 		
@@ -97,10 +117,20 @@ public class EmpController {
 		return "emp/info";
 	}
 	
-	@GetMapping("/delete")
-	public String delete(EmpVO empVO) {
+	@GetMapping("/info2")
+	public String getinfoTable(Model model) {
 		
-		int empno = empVO.getEmpno();
+		System.out.println("salgrade()..");
+		model.addAttribute("getInfo", empService.getInfoTable() );
+		
+		return "emp/info2";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable int id) {
+		
+		int empno = id;
+		
 		empService.delete(empno);
 		return "redirect:/emp/list4";
 	}

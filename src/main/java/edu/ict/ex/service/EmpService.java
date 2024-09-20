@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import edu.ict.ex.mapper.EmpMapper;
 import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptEmpVO;
+import edu.ict.ex.vo.EmpDeptVO;
 import edu.ict.ex.vo.EmpVO;
+import edu.ict.ex.vo.SalEmpVO;
 import edu.ict.ex.vo.SalgradeVO;
 
 //DeptRepository 다른이름
@@ -56,6 +58,18 @@ public class EmpService {
 	public int delete(int empno) {
 		return empMapper.delete(empno);
 		
+	}
+	
+	public List<EmpDeptVO>getEmpOneDeptList(){
+		return empMapper.getEmpOneDeptList();
+	}
+
+	public List<SalEmpVO> getSalGradeList() {
+		return empMapper.getSalGradeList();
+	}
+	
+	public List<SalEmpVO> getInfoTable() {
+		return empMapper.getInfoTable();
 	}
 	
 }

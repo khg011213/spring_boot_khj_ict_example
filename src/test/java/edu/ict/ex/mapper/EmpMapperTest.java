@@ -49,6 +49,26 @@ class EmpMapperTest {
 	
 	@Test
 	@Disabled
+	void testgetEmpOneDeptList() {
+			System.out.println(empMapper.getEmpOneDeptList());
+		
+	}
+	
+	@Test
+	@Disabled
+	void testgetSalGradeList() {
+			System.out.println(empMapper.getSalGradeList());
+		
+	}
+	
+	@Test
+	void testgetInfoTable() {
+			System.out.println(empMapper.getInfoTable());
+		
+	}
+	
+	@Test
+	@Disabled
 	void testgetInfoList() {
 			System.out.println(empMapper.getInfo());
 		

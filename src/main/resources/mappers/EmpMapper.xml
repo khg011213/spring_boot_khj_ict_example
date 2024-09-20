@@ -74,12 +74,6 @@
     </select>
      
     
-    <resultMap id="detpSalMap" type="DeptVO">
-       <result property="deptno" column="deptno"/>
-       <result property="dname" column="dname"/>
-       <result property="loc" column="loc"/>
-    </resultMap>
-    
     <select id="getInfo" resultMap="salMap">
        <![CDATA[
               SELECT ENAME, SAL, emp.deptno , loc, GRADE FROM EMP join dept on emp.deptno = dept.deptno join SALGRADE on EMP.SAL BETWEEN SALGRADE.LOSAL AND SALGRADE.HISAL
@@ -91,7 +85,69 @@
      	delete from emp where empno = #{empno}
      </delete>
      
+	<resultMap id="detpSalMap" type="DeptVO">
+       <result property="deptno" column="deptno"/>
+       <result property="dname" column="dname"/>
+       <result property="loc" column="loc"/>
+    </resultMap>
+    
+    <!-- 1대1방식 association 사용 -->
+	<resultMap id="deptOneMap" type="DeptVO">
+       <result property="deptno" column="deptno"/>
+       <result property="dname" column="dname"/>
+       <result property="loc" column="loc"/>
+    </resultMap>
      
+       <resultMap id="empDeptMap" type="EmpDeptVO" >
+       <id property="empno" column="empno"/>
+       <result property="ename" column="ename"/>
+       <result property="job" column="job"/>
+       <result property="mgr" column="mgr"/>
+       <result property="hiredate" column="hiredate"/>
+       <result property="sal" column="sal"/>
+       <result property="comm" column="comm"/>
+       <result property="deptno" column="deptno"/>
+       <association property="dept" resultMap="deptOneMap" ></association>
+    </resultMap>
+     
+     
+  	<select id="getEmpOneDeptList" resultMap="empDeptMap">
+       <![CDATA[
+             select * from emp, dept where emp.deptno = dept.deptno
+        ]]>
+    </select>
+    
+   	<resultMap id="salGradeMap" type="SalVO">
+       <result property="grade" column="grade"/>
+       <result property="losal" column="losal"/>
+       <result property="hisal" column="hisal"/>
+    </resultMap>
+
+	<resultMap id="empSalMap" type="SalEmpVO">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="mgr" column="mgr" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<result property="deptno" column="deptno" />
+		<association property="salGrade" resultMap="salGradeMap"></association>
+		<association property="dept" resultMap="deptOneMap"></association>
+	</resultMap>
+    
+    
+    <select id="getSalGradeList" resultMap="empSalMap">
+   		<![CDATA[
+     		SELECT ENAME, SAL, GRADE FROM EMP, SALGRADE WHERE SAL BETWEEN LOSAL AND HISAL
+    	]]>
+    </select>
+    
+	<select id="getInfoTable" resultMap="empSalMap">
+		<![CDATA[
+			SELECT ENAME, SAL, emp.deptno , loc, GRADE FROM EMP join dept on emp.deptno = dept.deptno join SALGRADE on EMP.SAL BETWEEN SALGRADE.LOSAL AND SALGRADE.HISAL
+   		]]>
+    </select>
      
 </mapper>
 
