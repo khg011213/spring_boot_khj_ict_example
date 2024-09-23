@@ -173,7 +173,7 @@
        <result property="hisal" column="hisal"/>    
     </resultMap>
     
-    <resultMap type="EmpSalgradeVO" id="EmpSalgradeMap">
+    <resultMap id="EmpSalgradeMap" type="EmpSalgradeVO" >
     	<association property="emp" resultMap="empMap2"></association>
     	<association property="salgrade" resultMap="salgradeMap"></association>
     
@@ -185,7 +185,7 @@
     	]]>
     </select>
     
-  	<resultMap type="EmpDeptSalgradeVO" id="EmpDeptSalgradeMap">
+  	<resultMap id="EmpDeptSalgradeMap" type="EmpDeptSalgradeVO" >
     	<association property="emp" resultMap="empMap2"></association>
     	<association property="salgrade" resultMap="salgradeMap"></association>
     	<association property="dept" resultMap="deptMap2"></association>

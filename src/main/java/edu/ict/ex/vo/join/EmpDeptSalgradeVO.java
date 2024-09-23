@@ -20,5 +20,11 @@ public class EmpDeptSalgradeVO {
 	private EmpVO emp;
 	private SalVO salgrade;
 	private DeptVO dept;
+	
+	private int num;
+	
+	public int getNum() {
+		return (int)((Math.random() * 6) + 1);
+	}
 
 }
