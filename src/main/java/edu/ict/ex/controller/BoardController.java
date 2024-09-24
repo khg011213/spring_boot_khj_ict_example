@@ -40,9 +40,9 @@ public class BoardController {
 	}
 	
 	@GetMapping("/delete")
-	public String getBoarddelete(BoardVO boardVO) {
+	public String getBoarddelete(int bid) {
 		
-		boardService.remove(boardVO);
+		boardService.remove(bid);
 		
 		System.out.println("delete()..");
 		

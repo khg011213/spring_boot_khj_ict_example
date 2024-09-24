@@ -12,6 +12,25 @@
 <script type="text/javascript">
 $(document).ready(function() {
     let board = boardService();
+    
+    let boardList = board.list();
+    let htmls = ''; // htmls 변수 초기화
+
+    // boardList.contacts가 올바른지 확인
+    console.log(boardList);
+
+    $(boardList).each(function(index, item) {
+    	console.log(item);
+        htmls += '<tr>';
+        htmls += '<td>' + item.bid + '</td>';
+        htmls += '<td>' + item.bname + '</td>';
+        htmls += '<td>' + item.bindent + '</td>';
+        htmls += '<td>' + item.bdate + '</td>'; // bid 중복 수정
+        htmls += '<td>' + item.bhit + '</td>';
+        htmls += '</tr>';
+    });
+	
+    $("#list-table").append(htmls);
 });
        //board.get(1021);
       
@@ -19,7 +38,7 @@ $(document).ready(function() {
     	 
          bname : "아하",
          btitle : "음매에~~~",
-         bcontent : "내용",
+         bcontent : "댓글1번 수정",
          //bid:2084
       }
       
@@ -27,7 +46,7 @@ $(document).ready(function() {
       //board.del(1500);
       //board.del(2085);
       
-      board.updateboard(boardObj);
+      //board.updateboard(boardObj);
       //board.insertReply(boardObj);
    }); 
 

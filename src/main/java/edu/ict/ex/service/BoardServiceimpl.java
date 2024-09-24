@@ -35,11 +35,11 @@ public class BoardServiceimpl implements BoardService{
 	}
 
 	@Override
-	public int remove(BoardVO boardVO) {
+	public int remove(int bid) {
 		
 		log.info("remove()..");
 		
-		return boardMapper.delete(boardVO);
+		return boardMapper.delete(bid);
 	}
 
 	@Override

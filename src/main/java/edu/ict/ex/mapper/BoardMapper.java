@@ -17,7 +17,7 @@ public interface BoardMapper {
 	
 	public int updateHit(BoardVO boardVO);
 	
-	int delete(BoardVO boardVO);
+	int delete(int bid);
 
 	int insert(BoardVO boardVO);
 	

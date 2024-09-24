@@ -79,7 +79,7 @@ public class RestBoardController {
 
 		ModelAndView mv = new ModelAndView();
 
-		mv.setViewName("rest/rest");
+		mv.setViewName("rest/rest_list");
 
 		return mv;
 	}
@@ -107,16 +107,16 @@ public class RestBoardController {
 	}
 
 	@DeleteMapping("/{bid}")
-	public ResponseEntity<String> delete(BoardVO boardVO) {
+	public ResponseEntity<String> delete(@PathVariable int bid) {
 
 		log.info("delete..");
-		log.info("board" + boardVO);
+		log.info("board" + bid);
 
 		ResponseEntity<String> entity = null;
 
 		try {
-			int rn = boardService.remove(boardVO);
-			boardService.remove(boardVO);
+			int rn = boardService.remove(bid);
+			boardService.remove(bid);
 			entity = new ResponseEntity<String>(String.valueOf(rn), HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -168,5 +168,7 @@ public class RestBoardController {
 
 		return entity;
 	}
+	
+	
 
 }

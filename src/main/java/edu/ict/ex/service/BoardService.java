@@ -11,7 +11,7 @@ public interface BoardService {
 
 	BoardVO get(int bno);
 	
-	int remove(BoardVO boardVO);
+	int remove(int bid);
 
 	int insert(BoardVO boardVO);
 

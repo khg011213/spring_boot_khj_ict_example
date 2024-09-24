@@ -27,10 +27,7 @@ let boardService = function() {
 				error: function(e) {
 					console.log(e);
 				}
-	
 			});
-		
-
 	}//list()
 
 	function get(id) {
