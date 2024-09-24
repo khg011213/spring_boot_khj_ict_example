@@ -36,19 +36,7 @@ class BoardMapperTest {
 		System.out.println(boardMapper.read(20));
 
 		}
-	@Disabled
-	@Test
-	void testDelete() {
-		
-		int count = boardMapper.delete(19);
-		
-		System.out.println("삭제된 갯수" + count);
-		
-		if(boardMapper.read(19) == null) {
-			System.out.println("삭제완료");
-		}
-
-	}
+	
 	@Disabled
 	@Test
 	void testModify() {
@@ -61,7 +49,7 @@ class BoardMapperTest {
 		board.setBtitle("홍길동");
 		board.setBcontent("길동");
 		
-		boardMapper.modify(0, null, null, null);
+		boardMapper.modify(board);
 
 
 	}

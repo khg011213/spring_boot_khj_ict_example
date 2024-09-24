@@ -11,11 +11,11 @@ public interface BoardService {
 
 	BoardVO get(int bno);
 	
-	int remove(int bno);
+	int remove(BoardVO boardVO);
 
-	int insert(String bname, String btitle, String bcontent);
+	int insert(BoardVO boardVO);
 
-	int modify(int bid ,String bname, String btitle, String bcontent);
+	int modify(BoardVO boardVO);
 	
 	void boardReply(BoardVO boardVO);
 	

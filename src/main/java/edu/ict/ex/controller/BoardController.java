@@ -42,8 +42,7 @@ public class BoardController {
 	@GetMapping("/delete")
 	public String getBoarddelete(BoardVO boardVO) {
 		
-		int bid = boardVO.getBid();
-		boardService.remove(bid);
+		boardService.remove(boardVO);
 		
 		System.out.println("delete()..");
 		
@@ -60,11 +59,7 @@ public class BoardController {
 	@PostMapping("/write")
 	public String BoardWrite(BoardVO boardVO) {
 		
-		String bname = boardVO.getBname();
-		String btitle = boardVO.getBtitle();
-		String bcontent = boardVO.getBcontent();
-		
-		boardService.insert(bname, btitle, bcontent);
+		boardService.insert(boardVO);
 		
 		
 		return "redirect:/board/list";
@@ -73,12 +68,7 @@ public class BoardController {
 	@PostMapping("/modify")
 	public String Boardmodify(BoardVO boardVO) {
 		
-		int bid = boardVO.getBid();
-		String bname = boardVO.getBname();
-		String btitle = boardVO.getBtitle();
-		String bcontent = boardVO.getBcontent();
-		
-		boardService.modify(bid, bname, btitle, bcontent);
+		boardService.modify(boardVO);
 		
 		
 		return "redirect:/board/list";
