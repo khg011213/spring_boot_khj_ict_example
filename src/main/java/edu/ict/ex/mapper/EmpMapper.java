@@ -29,5 +29,6 @@ public interface EmpMapper {
 	
 	//연습문제 join처리2
 	public List<EmpDeptSalgradeVO> getEmpDeptSalgrade();
+
 	
 }

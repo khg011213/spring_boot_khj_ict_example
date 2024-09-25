@@ -74,12 +74,12 @@ public class RestBoardController {
 		return boardVO;
 	}
 
-	@GetMapping("/rest")
+	@GetMapping("/rest") //경로변수
 	public ModelAndView rest() {
 
 		ModelAndView mv = new ModelAndView();
 
-		mv.setViewName("rest/rest_list");
+		mv.setViewName("rest/rest_list2");
 
 		return mv;
 	}
@@ -169,6 +169,15 @@ public class RestBoardController {
 		return entity;
 	}
 	
-	
+//	@GetMapping("/write_view")
+//	public ModelAndView writeView() {
+//		ModelAndView mv = new ModelAndView();
+//
+//		mv.setViewName("/eshopper/rest_content_view");
+//
+//		return mv;
+//		
+//	}
 
+	
 }

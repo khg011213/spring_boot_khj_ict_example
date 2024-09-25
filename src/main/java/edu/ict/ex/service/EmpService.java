@@ -54,4 +54,5 @@ public class EmpService {
 	public List<EmpDeptSalgradeVO> getEmpDeptSalgrade(){
 		return empMapper.getEmpDeptSalgrade();
 	}
+
 }

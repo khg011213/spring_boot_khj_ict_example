@@ -13,31 +13,39 @@
 let boardService = function() {
 	//console.log("안녕하세요");
 
-	function list() {
-		
-		//let data;
-		
-			$.ajax({
-				type: "GET",
-				url: "/boards/list",
-				success: function(result) {
-					console.log(result);				
-			 		return result;
-				},
-				error: function(e) {
-					console.log(e);
-				}
-			});
-	}//list()
 
-	function get(id) {
+		function list(callback){
 
+				$.ajax({
+					type:"GET",
+					url: "/boards/list",
+					success : function(result) {
+						console.log(result);
+						
+						if(callback){
+							callback(result);
+						}
+						
+					},
+					error:function(e){
+						console.log(e);
+					}
+
+				});		
+			
+			} //list()
+
+	function get(id,callback) {
+	
 		$.ajax({
 			type: "GET",
 			url: "/boards/" + id
 			,
 			success: function(result) {
 				console.log(result);
+				if(callback){
+					callback(result);
+				}
 			},
 			error: function(e) {
 				console.log(e);
@@ -58,9 +66,7 @@ let boardService = function() {
 			data: JSON.stringify(board),
 			success: function(result) {
 
-				if (result == "SUCCESS")
 					console.log(result);
-
 			},
 			error: function(e) {
 				console.log(e);
@@ -90,55 +96,32 @@ let boardService = function() {
 
 	}
 	
-	function updateboard(board) {
-		
-		console.log(board)
-		
-		console.log(JSON.stringify(board))
+	function updateboard(modify,callback) {
 		
 		$.ajax({
-			type: "PUT",
-			url: "/boards/",
-			contentType: 'application/json; charset=utf-8',
-			data: JSON.stringify(board),
-			success: function(result) {
+					type: "PUT",
+					url: "/boards/",
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify(modify),
+					success: function(result) {
 
-					console.log("업데이트" + result);
+							console.log(result);
+						if(callback){
+							callback(result);
+						}
+						let url = '/boards/rest';
+						location.replace(url);
+						//$(location).attr('href','/boards/rest'); repalace는 기존 텝에서 href는 새텝을 열어줌
+					},
+					error: function(e) {
+						console.log(e);
 
-			},
-			error: function(e) {
-				console.log(e);
+					}
 
-			}
-
-		});
+				});
 
 	}
 	
-	function insertReply(board) {
-		
-		console.log(board)
-		
-		console.log(JSON.stringify(board))
-		
-		$.ajax({
-			type: "POST",
-			url: "/boards/reply",
-			contentType: 'application/json; charset=utf-8',
-			data: JSON.stringify(board),
-			success: function(result) {
-
-					console.log("댓글" + result);
-
-			},
-			error: function(e) {
-				console.log(e);
-
-			}
-
-		});
-
-	}
 	
 	
 
@@ -148,8 +131,7 @@ let boardService = function() {
 		get: get,
 		add: add,
 		del : del,
-		updateboard : updateboard,
-		insertReply : insertReply
+		updateboard : updateboard
 	}
 
 
