@@ -13,7 +13,9 @@ import edu.ict.ex.page.PageVO;
 import edu.ict.ex.service.DeptService;
 import edu.ict.ex.service.EmpService;
 import edu.ict.ex.vo.EmpVO;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/eshopper")
 public class ShopController {
@@ -27,5 +29,11 @@ public class ShopController {
 		model.addAttribute("empList", empService.getEmpDeptSalgrade());
 		
 		return "eshopper/index";
+	}
+	
+	@GetMapping("/login2")
+	public String ehoplogin(Model model) {
+		log.info("login()...");
+		return "eshopper/login";
 	}
 }

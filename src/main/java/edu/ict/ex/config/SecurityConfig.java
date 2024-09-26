@@ -43,9 +43,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/board/**").hasAnyRole("USER")
 		.antMatchers("/boards/**").hasAnyRole("ADMIN")
 		.antMatchers("/**").permitAll(); //permitAll을 사용하면 위에 둘을 제외한 것을 
-
-		http.formLogin(); // 스프링 시큐리티에 있는 기본 로그인 폼을 사용하겠다.
-
+		
+		//로그인폼 커스터마이징
+		//http.formLogin(); // 스프링 시큐리티에 있는 기본 로그인 폼을 사용하겠다.
+		http.formLogin()
+		.loginPage("/eshopper/login")  //로그인 할 페이지 url임
+		.usernameParameter("id")
+		.passwordParameter("pw")
+		.defaultSuccessUrl("/eshopper/index");
+		
 	}
 	
 	
