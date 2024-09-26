@@ -56,6 +56,32 @@ let empService = function() {
 
 	}
 	
+	function add(emp , callback) {
+
+		$.ajax({
+			type: "POST",
+			url: "/emps/",
+			contentType: 'application/json; charset=utf-8',
+			data: JSON.stringify(emp),
+			success: function(result) {
+
+					console.log(result);
+					if(callback){
+						callback(result);
+					}
+					let url = '/emp_list.html';
+					location.replace(url);
+					
+			},
+			error: function(e) {
+				console.log(e);
+
+			}
+
+		});
+
+	}
+	
 	
 	
 	
@@ -63,7 +89,8 @@ let empService = function() {
 	//객체 리턴
 	return {
 		list: list,
-		del : del
+		del : del,
+		add : add
 	}
 
 

@@ -30,7 +30,7 @@ $(document).ready(function(){
 		}).appendTo("#list-table") // 이것을 테이블에 붙임
 		
 		if(result.length <1){
-			htmls.push("등록된 댓글이 없습니다.");
+			htmls.push("사원이 없습니다.");
 		}else{
 			
 			$(result).each(function(){
@@ -47,7 +47,9 @@ $(document).ready(function(){
 	            htmls += '</tr>';			
 				
 			}); //each end			
-			
+			htmls+='<tr>';
+	    	htmls+='<td colspan="5"> <a href="/write_view.html">글작성</a> </td>';		                	
+	    	htmls+='</tr>';
 		}
 		
 		$('#list-table').append(htmls);

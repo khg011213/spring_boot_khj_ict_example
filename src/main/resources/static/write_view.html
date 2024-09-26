@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/eshopper/js/emp.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#empForm").submit(function(event){
+		event.preventDefault();
+		
+		 
+		let empno = $("#td_empno").val(); // .text()로 수정
+		 let ename = $("#td_ename").val();
+		 let job = $("#td_job").val();
+		 let mgr = $("#td_mgr").val();	
+		 let hiredate = $("#td_date").val(); // 문자열로 가져옴
+		 let sal = $("#td_sal").val();
+		 let comm = $("#td_comm").val();
+		 let deptno = $("#td_deptno").val();
+		let modify = {
+			empno : empno,
+			ename : ename,
+			job : job,
+			mgr : mgr,
+			hiredate : hiredate,
+			sal : sal,
+			comm : comm,
+			deptno : deptno
+		};
+		
+		console.log(modify)
+		
+		
+		let emp = empService();
+		emp.add(modify, function(result){
+				console.log(result);
+				//이 function(result) 는 modify로 보낸값이 실행에 성공했을때 콜백함수를 받아서 실행시켜주는 역할
+			});
+	});
+	
+});
+</script>
+
+<script type="text/javascript">
+    
+$(document).ready(function(){
+    	function listCallback(result){
+    		let htmls="";
+    		
+    		$(result).each(function(){
+				let mgroption = $("<option></option>").text(this.empno).val(this.empno);
+				let deptnooption = $("<option></option>").text(this.deptno).val(this.deptno);
+				
+				$("#td_mgr").append(mgroption);
+				$("#td_deptno").append(deptnooption);
+    		});
+
+    }
+    	   	let emp = empService();
+    		emp.list(listCallback);
+});
+    
+</script>
+
+
+
+
+</head>
+<body>
+	<h1>emp 리스트</h1>
+
+		<form id="empForm" action="/emp/form" method="post">
+			사원 번호 <input id="td_empno" type="text" name="empno" /><br> 
+			이름<input id="td_ename" type="text" name="ename" /><br> 
+			직업<input id="td_job" type="text" name="job" /><br>
+			관리자       
+				<select id="td_mgr" name="mgr">
+					<option id="" value=""></option>
+      			</select><br>
+
+			고용일자<input id="td_date" type="date" name="hiredate" /><br> 
+			급여<input id="td_sal" type="text" name="sal" /><br>
+			보너스<input id="td_comm" type="text" name="comm" /><br>
+			부서번호 
+				<select id="td_deptno" name="deptno">
+         			
+      			</select><br>
+			<input type="submit" value="제출"><br>
+		</form>
+
+</body>
+</html>

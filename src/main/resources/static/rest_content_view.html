@@ -44,6 +44,7 @@
 			let board = boardService();
 			board.updateboard(modify, function(result){
 				console.log(result);
+				//이 function(result) 는 modify로 보낸값이 실행에 성공했을때 콜백함수를 받아서 실행시켜주는 역할
 			});
 		
 		});	

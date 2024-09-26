@@ -56,7 +56,7 @@ public class RestEmpController {
 	public ResponseEntity<String> delete(@PathVariable int empno) {
 
 		log.info("delete..");
-		log.info("board" + empno);
+		log.info("empno" + empno);
 
 		ResponseEntity<String> entity = null;
 
@@ -72,6 +72,29 @@ public class RestEmpController {
 
 		return entity;
 	}
+	
+	
+	@PostMapping("/")
+	public ResponseEntity<String> write(@RequestBody EmpVO empVO) {
+
+		log.info("write..");
+		log.info("empVO" + empVO);
+
+		ResponseEntity<String> entity = null;
+
+		try {
+			empService.insert(empVO);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+
+		return entity;
+	}
+	
+	
 
 	
 
