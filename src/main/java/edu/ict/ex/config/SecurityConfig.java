@@ -56,10 +56,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//로그인폼 커스터마이징
 		//http.formLogin(); // 스프링 시큐리티에 있는 기본 로그인 폼을 사용하겠다.
 		http.formLogin()
-		.loginPage("/eshopper/login")  //로그인 할 페이지 url임
+		.loginPage("/login")  //로그인 할 페이지 url임
 		.usernameParameter("id")
 		.passwordParameter("pw")
-		.defaultSuccessUrl("/eshopper/index");
+		.defaultSuccessUrl("/"); //완료후 갈 주소
 		
 	}
 	

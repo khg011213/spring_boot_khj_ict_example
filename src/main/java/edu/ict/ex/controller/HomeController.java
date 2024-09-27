@@ -8,19 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class LoginController {
-
+public class HomeController {
 	
-//	@GetMapping("/login")
-//	public String login(Model model) {
-//		log.info("login()...");
-//		return "/eshopper/login";
-//	}
-	
-	@GetMapping("/login")
-	public String login(Model model) {
+	@GetMapping("/")
+	public String home() {
 		log.info("login()...");
-		return "/login/login";
+		return "home";
 	}
 	
 	

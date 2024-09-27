@@ -9,18 +9,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-// Dept 와 Emp 는 1 대 다 관계이다
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserVO {
-	private String username;
-	private String password;
-	private String enabled;
-	
-	private String email = "abcd@daum.net";
-	
-	private List<AuthVO> authList;
+public class CartVO {
+	private String product = "사이다";
+	private int count = 5;
 }
