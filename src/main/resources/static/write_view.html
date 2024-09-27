@@ -47,14 +47,25 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-    
+    /*  조인 테이블 가져오고 싶으면 리텬에  public List<EmpDeptSalgradeVO>  list7(Model model) {
+		model.addAttribute("empList", empService.getEmpDeptSalgrade()); 를 넣어준다 그러면 this.emp.empno로 가져올수있다. */
+		
+		return empService.getEmpDeptSalgrade()
 $(document).ready(function(){
     	function listCallback(result){
     		let htmls="";
     		
-    		$(result).each(function(){
+    		$(result).each(function(){ 
 				let mgroption = $("<option></option>").text(this.empno).val(this.empno);
 				let deptnooption = $("<option></option>").text(this.deptno).val(this.deptno);
+				
+				function test(){
+					let deptnoresult = '';
+					if(this.deptno = )
+				}
+					
+				
+				
 				
 				$("#td_mgr").append(mgroption);
 				$("#td_deptno").append(deptnooption);
