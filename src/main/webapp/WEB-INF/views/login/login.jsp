@@ -13,6 +13,7 @@
 
 <c:url value="/login" var="loginUrl" />
 <p>${loginUrl}</p>
+<!-- form:form은 스프링 시큐리티에서 제공하는 form태그를 사용하면 히든을 안맏들어도됨 -->
 <form:form name="f" action="${loginUrl}" method="POST">
      <!--  http://localhost:8282/login?error -->
     <c:if test="${param.error != null}">         
@@ -29,7 +30,7 @@
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="pw"/>
     </p>
-    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
+	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <button type="submit" class="btn">로그인</button>
 </form:form>
 
